@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/df3e206aca.js" crossorigin="anonymous"></script>
+</head>
+<body> 
+    <div id="header">
+        <div class="container">
+            <nav>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Network Administrator</p>
+                <h2>Hi, I'm <span>Collin</span><br>From Tanzania</h2>
+            </div>
+        </div>
+    </div>
+<!----------------about----------->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/Another.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About me </h1><br>
+                <p>I am passionate about technology, with a strong interest and skills in network administration, web and mobile app development, and cybersecurity. 
+                I enjoy exploring innovative solutions to technical challenges and continuously improving my expertise in these fields.
+                With experience in managing networks, developing web and mobile applications, and enhancing cybersecurity measures, I am always eager to learn new technologies and stay updated with industry trends.
+                 My goal is to create efficient, secure, and scalable solutions that make a real impact.  </p>
+                 <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                 </div>
+                 <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Networking</span><br>Administoring network devices</li>
+                        <li><span>Web&App development</span><br>Developing and designing web and applications</li>
+                        <li><span>Cyber security</span><br>Offensive and defensive security</li>
+                    </ul>
+                 </div>
+                 <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2025 - current</span><br>CCNA training at DIT</li>
+                        <li><span>2024-2025</span><br>Developed a Community network web using API</li>
+                        <li><span>2023-2024</span><br>Basic Training in Ethical hacking</li>
+                    </ul>
+                 </div>
+                 <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2025</span><br>Completed the Networking Training in Computer Networking and Network Administartion</li>
+                        <li><span>2024</span><br>Completed the First year in Ordinary Diploma</li>
+                        <li><span>2023</span><br>Joined Ordinary Diploma at Dar es salaam Institute of technology</li>
+                        <li><span>2022</span><br>Completed Secondary Education</li>
+                    </ul>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----------Services---------->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="sevices-list">
+             <div>
+                <i class="fa-solid fa-network-wired"></i>
+                <h2>Network Management</h2>
+                <p>I provide comprehensive network management solutions, ensuring reliable, secure, and high-performing network infrastructures. 
+                    From network setup and configuration to maintenance, troubleshooting, and security enhancements, I help businesses and individuals optimize their network operations.
+                    With expertise in monitoring network performance, managing servers, securing data, and implementing best practices, I ensure smooth connectivity and protection against cyber threats. 
+                    My goal is to create efficient, scalable, and secure networks that meet the demands of modern technology.</p>
+                    <a href="#">Learn more</a>
+             </div>
+             <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web Development</h2>
+                <p>I specialize in designing and developing dynamic, responsive, and user-friendly websites tailored to meet your needs. 
+                    Whether it's a personal portfolio, business website, or a fully functional web application, I create scalable solutions that enhance user experience and performance.
+                    My expertise includes front-end and back-end development, ensuring seamless functionality, security, and modern design. Using the latest technologies, I build websites that are fast, optimized,
+                    and visually appealing to help businesses and individuals establish a strong online presence.
+                </p>
+                    <a href="#">Learn more</a>
+             </div>
+             <div>
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h2>Computer system maintenance</h2>
+                <p>I provide comprehensive computer system maintenance to ensure your devices run smoothly, efficiently, and securely. 
+                    From hardware diagnostics and repairs to software optimization and system updates, I help prevent issues before they disrupt productivity.
+                    My services include troubleshooting performance issues, removing malware, optimizing system speed, and ensuring data security. 
+                    Whether for personal or business use, I ensure that your computer systems remain reliable, secure, and up to date, minimizing downtime and maximizing performance.
+                </p>
+                    <a href="#">Learn more</a>
+             </div>
+        </div>
+    </div>
+</div>
+<!--------------Portfolio--------------->
+<div id="portfolio">
+    <div class="container">
+        <div class="sub-title">My Work</div>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.png">
+                <div class="layer">
+                    <h3>ToDo App</h3>
+                    <p>The app help you to manage personal tasks incomplete and Completed.
+                        available from 22 march 2025 in play store. </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png">
+                <div class="layer">
+                    <h3>Waste App</h3>
+                    <p>The app help to manage waste in the surrounding environment.
+                        available from 22 march 2025 in play store. </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.png">
+                <div class="layer">
+                    <h3>Timezone App</h3>
+                    <p>The app helps the user to know exact time in other place around the world.
+                        available from 22 march 2025 in play store. </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class=""></a>
+    </div>
+</div>
+<!-----------contact-------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact me</h1>
+                <p> <i class="fa-solid fa-paper-plane"></i>Collinmasumai@gmail.com</p>
+                <p> <i class="fa-solid fa-phone"></i>0612050284</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="your name" required>
+                    <input type="email" name="Email" placeholder="your email" required>
+                    <textarea name="Message" rows="6" placeholder="your message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Looking forward to hearing from you By Collin Charles.</p>
+    </div>
+</div>
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwwpruuaNb9TDiaa4wkiighgD78Aia0HDfm0B0TV48NQuBXFaHXvOT_tIg1e3b5N4rl/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML="Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  <script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+         sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+   }
+  </script>
+</body>
+</html>
