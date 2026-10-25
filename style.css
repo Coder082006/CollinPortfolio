@@ -484,6 +484,11 @@ nav ul li a:hover::after {
     display: inline-block;
     transition: transform 0.5s;
 }
+.social-icons svg {
+    display: block;
+    width: 1em;
+    height: 1em;
+}
 .social-icons a:hover{
     color: #ff004f;
     transform: translateY(-5px);
