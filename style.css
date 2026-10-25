@@ -15,9 +15,26 @@ body {
 #header {
     width: 100%;
     height: 100vh;
-    background-image: url('images/background.png'); /* Ensure the path is correct */
+    min-height: 620px;
+    background-image: linear-gradient(90deg, rgba(8, 8, 8, 0.34), transparent 72%), url('images/background.png');
     background-size: cover; /* Ensures full image is visible */
     background-position: center; /* Moves image to the top right */
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+#header::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 460px;
+    height: 460px;
+    left: -250px;
+    bottom: -260px;
+    border-radius: 50%;
+    background: rgba(255, 0, 79, 0.2);
+    filter: blur(100px);
+    animation: hero-glow 8s ease-in-out infinite alternate;
 }
 .container{ 
     padding: 10px 10%; /* Adds some spacing from the edges */
@@ -74,18 +91,88 @@ nav ul li a:hover::after {
 .header-text {
     margin-top: 20%;
     font-size: 30px;
+    position: relative;
+    width: fit-content;
+    animation: hero-enter 900ms cubic-bezier(.2,.75,.25,1) both;
 }
 .header-text h2{ 
     font-size: 60px;
     margin-top: 20px;
+    line-height: 1.12;
 }
 .header-text p{
     font-size: 40px;
 }
 
-.header-text h2 span{
-    color:#ff004f;
-  }
+.hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,.78);
+    font-size: 18px !important;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    animation: hero-enter 700ms 120ms both;
+}
+.status-dot {
+    width: 9px;
+    height: 9px;
+    flex: 0 0 9px;
+    border-radius: 50%;
+    background: #ff004f;
+    box-shadow: 0 0 0 5px rgba(255,0,79,.16), 0 0 18px rgba(255,0,79,.8);
+    animation: dot-pulse 2s ease-in-out infinite;
+}
+.hero-title {
+    text-shadow: 0 8px 35px rgba(0,0,0,.35);
+}
+.hero-intro, .hero-name, .hero-location {
+    display: inline-block;
+    animation: hero-enter 850ms both;
+}
+.hero-intro { animation-delay: 180ms; }
+.hero-name {
+    color: #ff004f;
+    animation-delay: 330ms;
+    text-shadow: 0 0 32px rgba(255,0,79,.28);
+}
+.hero-location {
+    animation-delay: 480ms;
+}
+.hero-roles {
+    height: 1.5em;
+    margin-top: 22px;
+    overflow: hidden;
+    color: rgba(255,255,255,.72);
+    font-size: 20px;
+    letter-spacing: .04em;
+    border-left: 2px solid #ff004f;
+    padding-left: 14px;
+}
+.hero-roles span {
+    display: block;
+    height: 1.5em;
+    line-height: 1.5em;
+    animation: role-rotate 9s ease-in-out infinite;
+}
+@keyframes hero-enter {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes role-rotate {
+    0%, 27% { transform: translateY(0); }
+    33%, 60% { transform: translateY(-1.5em); }
+    66%, 93% { transform: translateY(-3em); }
+    100% { transform: translateY(0); }
+}
+@keyframes dot-pulse {
+    50% { box-shadow: 0 0 0 8px rgba(255,0,79,.08), 0 0 24px rgba(255,0,79,.95); }
+}
+@keyframes hero-glow {
+    from { transform: translate(0,0) scale(.9); opacity: .65; }
+    to { transform: translate(70px,-35px) scale(1.15); opacity: 1; }
+}
 
 /*--------------About-----------*/
 #about {
@@ -373,14 +460,24 @@ html, body {
 }
 @media only screen and (max-width: 600px) {
     #header{
-        background-image: url('images/phone-back.png'); /* Ensure the correct path */
+        background-image: linear-gradient(90deg, rgba(8, 8, 8, 0.18), transparent 85%), url('images/phone-back.png');
+        min-height: 560px;
     }
     .header-text{
-        margin-top: 85%;
+        margin-top: clamp(230px, 45vh, 380px);
         font-size: 16px;
     }
-    .header-text h1{
-        font-size: 30px;
+    .header-text h2{
+        font-size: clamp(38px, 11vw, 54px);
+        margin-top: 15px;
+    }
+    .hero-kicker {
+        font-size: 12px !important;
+        letter-spacing: .16em;
+    }
+    .hero-roles {
+        font-size: 16px;
+        margin-top: 16px;
     }
     nav .fa-solid{
         display: block;
@@ -428,5 +525,13 @@ html, body {
     }
     .copyright{
         font-size: 14px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
