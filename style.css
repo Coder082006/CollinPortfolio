@@ -141,16 +141,19 @@ nav ul li a:hover::after {
 .hero-name {
     position: relative;
     margin-left: .04em;
+    width: 5.2ch;
+    vertical-align: bottom;
     animation-delay: 500ms;
 }
 .hero-name > span {
-    color: transparent;
-    background: linear-gradient(105deg, #ff004f 8%, #ff7fa5 35%, #fff 50%, #ff7fa5 63%, #ff004f 92%);
-    background-size: 240% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    animation: name-float 3.8s 1.1s ease-in-out infinite, name-shimmer 4.8s 1.1s ease-in-out infinite;
-    filter: drop-shadow(0 0 18px rgba(255,0,79,.3));
+    display: block;
+    width: 5.2ch;
+    overflow: hidden;
+    border-right: .065em solid #ff5b89;
+    color: #ff4c7d;
+    white-space: nowrap;
+    text-shadow: 0 0 22px rgba(255,0,79,.35);
+    animation: type-name 3.8s 1.35s steps(6, end) infinite, caret-blink .75s 1.35s step-end infinite;
 }
 .hero-location {
     display: inline-flex;
@@ -206,13 +209,14 @@ nav ul li a:hover::after {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
 }
-@keyframes name-float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-6px) scale(1.025); }
+@keyframes type-name {
+    0%, 8% { width: 0; }
+    42%, 58% { width: 5.2ch; }
+    92%, 100% { width: 0; }
 }
-@keyframes name-shimmer {
-    0%, 18% { background-position: 100% center; }
-    70%, 100% { background-position: -140% center; }
+@keyframes caret-blink {
+    0%, 48% { border-color: #ff5b89; }
+    49%, 100% { border-color: transparent; }
 }
 @keyframes location-drift {
     0%, 100% { transform: translateX(0); }
@@ -597,5 +601,10 @@ html, body {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+    .hero-name > span {
+        width: 5.2ch !important;
+        border-right: 0;
+        animation: none !important;
     }
 }
