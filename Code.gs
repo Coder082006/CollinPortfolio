@@ -35,3 +35,7 @@ function jsonResponse(data) {
     .createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);
 }
+
+function authorizeEmailSending() {
+  MailApp.getRemainingDailyQuota();
+}
