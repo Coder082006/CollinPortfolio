@@ -23,7 +23,7 @@
             </nav>
             <div class="header-text">
                 <p class="hero-kicker"><span class="status-dot"></span> Network Administrator</p>
-                <h2 class="hero-title"><span class="hero-word hero-word-hi"><span>Hi,</span></span> <span class="hero-word hero-word-im"><span>I'm</span></span> <span class="hero-name"><span>Collin</span></span><br><span class="hero-location"><span>From</span> <span>Tanzania</span></span></h2>
+                <h2 class="hero-title"><span class="hero-word hero-word-hi"><span>Hi,</span></span> <span class="hero-word hero-word-im"><span>I'm</span></span> <span class="hero-name" aria-label="Collin and Network Administrator"><span id="hero-typed-name" aria-hidden="true">Collin</span></span><br class="hero-break"><span class="hero-location"><span>From</span> <span>Tanzania</span></span></h2>
                 <div class="hero-roles" aria-label="Network Administrator, Web and App Developer, Cybersecurity Enthusiast">
                     <span>Network Administrator</span>
                     <span>Web &amp; App Developer</span>
@@ -221,6 +221,39 @@
     function closemenu(){
         sidemenu.style.right = "-200px";
    }
+  </script>
+  <script>
+    const typedName = document.getElementById("hero-typed-name");
+    const nameWrapper = typedName.parentElement;
+    const namePhrases = ["Collin", "Network Administrator"];
+    let phraseIndex = 0;
+    let characterIndex = 0;
+    let isDeleting = false;
+
+    function animateName() {
+        const phrase = namePhrases[phraseIndex];
+        characterIndex += isDeleting ? -1 : 1;
+        typedName.textContent = phrase.slice(0, characterIndex);
+        typedName.style.width = "auto";
+        const textWidth = typedName.scrollWidth;
+        typedName.style.width = characterIndex ? `${textWidth + 2}px` : "0px";
+
+        let delay = isDeleting ? 55 : 110;
+        if (!isDeleting && characterIndex === phrase.length) {
+            isDeleting = true;
+            delay = 1300;
+        } else if (isDeleting && characterIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % namePhrases.length;
+            nameWrapper.classList.toggle("is-role", phraseIndex === 1);
+            delay = 350;
+        }
+        window.setTimeout(animateName, delay);
+    }
+
+    typedName.textContent = "";
+    typedName.style.width = "0px";
+    window.setTimeout(animateName, 900);
   </script>
 </body>
 </html>

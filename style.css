@@ -141,19 +141,23 @@ nav ul li a:hover::after {
 .hero-name {
     position: relative;
     margin-left: .04em;
-    width: 5.2ch;
+    min-width: 5.2ch;
     vertical-align: bottom;
     animation-delay: 500ms;
 }
 .hero-name > span {
-    display: block;
-    width: 5.2ch;
+    display: inline-block;
+    width: 0;
     overflow: hidden;
     border-right: .065em solid #ff5b89;
     color: #ff4c7d;
     white-space: nowrap;
     text-shadow: 0 0 22px rgba(255,0,79,.35);
-    animation: type-name 3.8s 1.35s steps(6, end) infinite, caret-blink .75s 1.35s step-end infinite;
+    transition: width 65ms linear;
+    animation: caret-blink .75s step-end infinite;
+}
+.hero-name.is-role {
+    font-size: .72em;
 }
 .hero-location {
     display: inline-flex;
@@ -208,11 +212,6 @@ nav ul li a:hover::after {
 @keyframes word-float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
-}
-@keyframes type-name {
-    0%, 8% { width: 0; }
-    42%, 58% { width: 5.2ch; }
-    92%, 100% { width: 0; }
 }
 @keyframes caret-blink {
     0%, 48% { border-color: #ff5b89; }
@@ -547,6 +546,16 @@ html, body {
         font-size: 16px;
         margin-top: 16px;
     }
+    .hero-name.is-role {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        font-size: clamp(25px, 7.5vw, 38px);
+        margin-left: 0;
+    }
+    .hero-name.is-role + .hero-break {
+        display: none;
+    }
     nav .fa-solid{
         display: block;
         font-size: 25px;
@@ -601,11 +610,5 @@ html, body {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-    }
-    /* Keep the requested typewriter effect active even when reduced motion is enabled. */
-    .hero-name > span {
-        animation-duration: 3.8s, .75s !important;
-        animation-delay: 1.35s, 1.35s !important;
-        animation-iteration-count: infinite, infinite !important;
     }
 }
