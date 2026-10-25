@@ -156,6 +156,9 @@ nav ul li a:hover::after {
     transition: width 65ms linear;
     animation: caret-blink .75s step-end infinite;
 }
+.hero-name.is-role {
+    font-size: .65em;
+}
 .hero-location {
     display: inline-flex;
     position: relative;
@@ -542,19 +545,6 @@ html, body {
     .hero-roles {
         font-size: 16px;
         margin-top: 16px;
-    }
-    .hero-name.is-role {
-        display: block;
-        width: fit-content;
-        max-width: 100%;
-        margin-left: 0;
-    }
-    .hero-name.is-role > span {
-        max-width: 100%;
-        white-space: normal;
-    }
-    .hero-name.is-role + .hero-break {
-        display: none;
     }
     nav .fa-solid{
         display: block;
